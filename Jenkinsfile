@@ -75,9 +75,9 @@ pipeline {
                 echo 'Stage: Deploying with Docker Compose'
                 echo '========================================='
                 script {
-                    sh 'docker-compose down || true'
+                    sh 'docker compose down || true'
                     
-                    sh 'docker-compose up -d'
+                    sh 'docker compose up -d'
                     
                     echo '✓ Application deployed successfully'
                     
@@ -129,7 +129,7 @@ pipeline {
             echo ''
             echo 'Please check the logs above for details.'
             echo ''
-            sh 'docker-compose down || true'
+            sh 'docker compose down || true'
         }
         always {
             echo ''

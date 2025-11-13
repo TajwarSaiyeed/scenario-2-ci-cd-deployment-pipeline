@@ -6,7 +6,7 @@
 [0;36m[1m║                                                       ║[0m
 [0;36m[1m╚═══════════════════════════════════════════════════════╝[0m
 
-[1;33mStarted: 2025-11-14 00:00:18[0m
+[1;33mStarted: 2025-11-14 00:02:37[0m
 
 [0;36mℹ Checking prerequisites...[0m
 [0;32m✓ All prerequisites found[0m
@@ -26,14 +26,14 @@ drwxrwxr-x  4 tajwar tajwar 4096 নভেম্বর   13 23:53 app
 -rw-rw-r--  1 tajwar tajwar  343 নভেম্বর   13 23:58 Dockerfile
 -rw-rw-r--  1 tajwar tajwar 1160 নভেম্বর   13 23:48 Dockerfile.jenkins
 -rw-rw-r--  1 tajwar tajwar   94 নভেম্বর   13 23:47 .dockerignore
-drwxrwxr-x  8 tajwar tajwar 4096 নভেম্বর   13 23:58 .git
+drwxrwxr-x  8 tajwar tajwar 4096 নভেম্বর   14 00:01 .git
 -rw-rw-r--  1 tajwar tajwar   70 নভেম্বর   13 23:49 .gitignore
 -rwxrwxr-x  1 tajwar tajwar 2431 নভেম্বর   13 23:56 healthcheck.sh
--rw-rw-r--  1 tajwar tajwar 4674 নভেম্বর   13 23:56 Jenkinsfile
--rw-rw-r--  1 tajwar tajwar 1046 নভেম্বর   14 00:00 pipeline-console-output.txt
+-rw-rw-r--  1 tajwar tajwar 4674 নভেম্বর   14 00:02 Jenkinsfile
+-rw-rw-r--  1 tajwar tajwar 1046 নভেম্বর   14 00:02 pipeline-console-output.txt
 -rw-rw-r--  1 tajwar tajwar 4664 নভেম্বর   13 23:58 pipeline-output.txt
 -rw-rw-r--  1 tajwar tajwar 1258 নভেম্বর   13 23:57 README.md
--rwxrwxr-x  1 tajwar tajwar 5927 নভেম্বর   13 23:50 run-pipeline-demo.sh
+-rwxrwxr-x  1 tajwar tajwar 5927 নভেম্বর   14 00:02 run-pipeline-demo.sh
 -rwxrwxr-x  1 tajwar tajwar 3228 নভেম্বর   13 23:48 setup-jenkins.sh
 -rwxrwxr-x  1 tajwar tajwar 1809 নভেম্বর   13 23:50 verify-setup.sh
 
@@ -61,14 +61,14 @@ drwxrwxr-x  8 tajwar tajwar 4096 নভেম্বর   13 23:58 .git
 PASS ./server.test.js
   Express App Tests
     GET /
-      ✓ should return welcome message (122 ms)
+      ✓ should return welcome message (85 ms)
     GET /health
-      ✓ should return health status (10 ms)
+      ✓ should return health status (11 ms)
     GET /api/hello
       ✓ should return hello world message (7 ms)
-      ✓ should return personalized hello message (8 ms)
+      ✓ should return personalized hello message (9 ms)
     GET /nonexistent
-      ✓ should return 404 for non-existent route (14 ms)
+      ✓ should return 404 for non-existent route (11 ms)
 
 -----------|---------|----------|---------|---------|-------------------
 File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -79,7 +79,7 @@ All files  |     100 |      100 |     100 |     100 |
 Test Suites: 1 passed, 1 total
 Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        1.919 s, estimated 2 s
+Time:        1.188 s, estimated 2 s
 Ran all test suites.
 [0;32m✓ All tests passed successfully[0m
 

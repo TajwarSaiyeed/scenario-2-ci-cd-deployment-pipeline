@@ -123,8 +123,8 @@ fi
 # Stage 5: Deploy
 print_stage "Stage 5: Deploy"
 print_info "Deploying with Docker Compose..."
-docker-compose down 2>/dev/null || true
-docker-compose up -d
+docker compose down 2>/dev/null || true
+docker compose up -d
 if [ $? -eq 0 ]; then
     print_success "Application deployed successfully"
     docker ps | grep demo-app
