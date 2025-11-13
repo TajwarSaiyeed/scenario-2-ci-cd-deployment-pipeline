@@ -1,0 +1,90 @@
+
+[0;36m[1m╔═══════════════════════════════════════════════════════╗[0m
+[0;36m[1m║                                                       ║[0m
+[0;36m[1m║         CI/CD PIPELINE EXECUTION DEMO                 ║[0m
+[0;36m[1m║         Demo App Build → Test → Deploy                ║[0m
+[0;36m[1m║                                                       ║[0m
+[0;36m[1m╚═══════════════════════════════════════════════════════╝[0m
+
+[1;33mStarted: 2025-11-13 23:57:47[0m
+
+[0;36mℹ Checking prerequisites...[0m
+[0;32m✓ All prerequisites found[0m
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 1: Checkout[0m
+[0;34m[1m=========================================[0m
+
+[0;36mℹ Verifying project structure...[0m
+[0;32m✓ Project structure verified[0m
+total 76
+drwxrwxr-x  4 tajwar tajwar 4096 নভেম্বর   13 23:57 .
+drwxrwxr-x 16 tajwar tajwar 4096 নভেম্বর   13 23:45 ..
+drwxrwxr-x  4 tajwar tajwar 4096 নভেম্বর   13 23:53 app
+-rw-rw-r--  1 tajwar tajwar  521 নভেম্বর   13 23:48 docker-compose.jenkins.yml
+-rw-rw-r--  1 tajwar tajwar  591 নভেম্বর   13 23:47 docker-compose.yml
+-rw-rw-r--  1 tajwar tajwar  336 নভেম্বর   13 23:55 Dockerfile
+-rw-rw-r--  1 tajwar tajwar 1160 নভেম্বর   13 23:48 Dockerfile.jenkins
+-rw-rw-r--  1 tajwar tajwar   94 নভেম্বর   13 23:47 .dockerignore
+drwxrwxr-x  7 tajwar tajwar 4096 নভেম্বর   13 23:57 .git
+-rw-rw-r--  1 tajwar tajwar   70 নভেম্বর   13 23:49 .gitignore
+-rwxrwxr-x  1 tajwar tajwar 2431 নভেম্বর   13 23:56 healthcheck.sh
+-rw-rw-r--  1 tajwar tajwar 4674 নভেম্বর   13 23:56 Jenkinsfile
+-rw-rw-r--  1 tajwar tajwar 1046 নভেম্বর   13 23:57 pipeline-output.txt
+-rw-rw-r--  1 tajwar tajwar 1258 নভেম্বর   13 23:57 README.md
+-rwxrwxr-x  1 tajwar tajwar 5927 নভেম্বর   13 23:50 run-pipeline-demo.sh
+-rwxrwxr-x  1 tajwar tajwar 3228 নভেম্বর   13 23:48 setup-jenkins.sh
+-rwxrwxr-x  1 tajwar tajwar 1809 নভেম্বর   13 23:50 verify-setup.sh
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 2: Build[0m
+[0;34m[1m=========================================[0m
+
+[0;36mℹ Installing dependencies...[0m
+[0;32m✓ Dependencies installed successfully[0m
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 3: Test[0m
+[0;34m[1m=========================================[0m
+
+[0;36mℹ Running unit tests...[0m
+
+> demo-app@1.0.0 test
+> jest --coverage
+
+  console.log
+    Server is running on port 3000
+
+      at Server.log (server.js:32:11)
+
+PASS ./server.test.js
+  Express App Tests
+    GET /
+      ✓ should return welcome message (91 ms)
+    GET /health
+      ✓ should return health status (16 ms)
+    GET /api/hello
+      ✓ should return hello world message (9 ms)
+      ✓ should return personalized hello message (25 ms)
+    GET /nonexistent
+      ✓ should return 404 for non-existent route (11 ms)
+
+-----------|---------|----------|---------|---------|-------------------
+File       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------|---------|----------|---------|---------|-------------------
+All files  |     100 |      100 |     100 |     100 |                   
+ server.js |     100 |      100 |     100 |     100 |                   
+-----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        1.666 s, estimated 2 s
+Ran all test suites.
+[0;32m✓ All tests passed successfully[0m
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 4: Package (Build Docker Image)[0m
+[0;34m[1m=========================================[0m
+
+[0;36mℹ Cleaning up existing containers...[0m
+[0;36mℹ Building Docker image...[0m
