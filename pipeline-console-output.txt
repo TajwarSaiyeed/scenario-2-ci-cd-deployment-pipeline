@@ -89,3 +89,92 @@ Ran all test suites.
 
 [0;36mℹ Cleaning up existing containers...[0m
 [0;36mℹ Building Docker image...[0m
+sha256:1a7e83b9ffe7d19b445a9c823dfe942cbd3970b1dcc68d430b82429387e04a61
+[0;32m✓ Docker image built successfully[0m
+WARNING: This output is designed for human readability. For machine-readable output, please use --format.
+demo-app:latest                 1a7e83b9ffe7        244MB         52.6MB        
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 5: Deploy[0m
+[0;34m[1m=========================================[0m
+
+[0;36mℹ Deploying with Docker Compose...[0m
+time="2025-11-14T00:03:15+06:00" level=warning msg="/home/tajwar/dev/scenario-2-ci-cd-deployment-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Network scenario-2-ci-cd-deployment-pipeline_app-network  Creating
+ Network scenario-2-ci-cd-deployment-pipeline_app-network  Created
+ Container demo-app  Creating
+ Container demo-app  Created
+ Container demo-app  Starting
+ Container demo-app  Started
+[0;32m✓ Application deployed successfully[0m
+e013ed7d9a7d   demo-app:latest   "docker-entrypoint.s…"   56 seconds ago   Up 1 second (health: starting)   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   demo-app
+
+[0;34m[1m=========================================[0m
+[0;34m[1mStage 6: Health Check[0m
+[0;34m[1m=========================================[0m
+
+=========================================
+Health Check for Demo Application
+=========================================
+
+Step 1: Checking if container is running...
+[0;32m✓[0m Container 'demo-app' is running
+
+Step 2: Waiting for application to be ready...
+[1;33m⟳[0m Attempt 1/30 - Waiting 2s...
+[0;32m✓[0m Health endpoint responded successfully
+
+Step 3: Fetching health status details...
+[0;32mHealth Status Response:[0m
+{
+    "status": "healthy",
+    "uptime": 1.92817153,
+    "timestamp": "2025-11-13T18:04:16.045Z"
+}
+
+Step 4: Testing main endpoint...
+[0;32mMain Endpoint Response:[0m
+{
+    "message": "Welcome to the Demo CI/CD Application!",
+    "version": "1.0.0",
+    "timestamp": "2025-11-13T18:04:16.157Z"
+}
+
+=========================================
+[0;32m✓ ALL HEALTH CHECKS PASSED[0m
+=========================================
+
+Application is healthy and ready to serve requests!
+Access the app at: http://localhost:3000
+
+[0;32m✓ Health check passed - Application is healthy![0m
+
+[0;32m[1m╔═══════════════════════════════════════════════════════╗[0m
+[0;32m[1m║                                                       ║[0m
+[0;32m[1m║         🎉 PIPELINE COMPLETED SUCCESSFULLY! 🎉        ║[0m
+[0;32m[1m║                                                       ║[0m
+[0;32m[1m╚═══════════════════════════════════════════════════════╝[0m
+
+[0;36m[1mPipeline Summary:[0m
+[0;32m  ✓ Stage 1: Checkout       - PASSED[0m
+[0;32m  ✓ Stage 2: Build          - PASSED[0m
+[0;32m  ✓ Stage 3: Test           - PASSED[0m
+[0;32m  ✓ Stage 4: Package        - PASSED[0m
+[0;32m  ✓ Stage 5: Deploy         - PASSED[0m
+[0;32m  ✓ Stage 6: Health Check   - PASSED[0m
+
+[0;36m[1mExecution Time:[0m 99 seconds
+[0;36m[1mCompleted:[0m 2025-11-14 00:04:16
+
+[0;36m[1mApplication URLs:[0m
+  • Main:    [1;33mhttp://localhost:3000[0m
+  • Health:  [1;33mhttp://localhost:3000/health[0m
+  • API:     [1;33mhttp://localhost:3000/api/hello[0m
+
+[0;36m[1mQuick Commands:[0m
+  • View logs:    [1;33mdocker logs demo-app[0m
+  • Stop app:     [1;33mdocker-compose down[0m
+  • Test health:  [1;33mcurl http://localhost:3000/health[0m
+
+[0;32m[1m✓ Application is live and healthy![0m
+
